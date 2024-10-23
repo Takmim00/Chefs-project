@@ -24,7 +24,7 @@ function App() {
       <OurRecipes></OurRecipes>
       <section className="flex flex-col md:flex-row gap-6">
         <Recipes addRecipeToQueue={addRecipeToQueue}></Recipes>
-        <Sidebar></Sidebar>
+        <Sidebar recipeQueue={recipeQueue}></Sidebar>
       </section>
     </div>
   );
