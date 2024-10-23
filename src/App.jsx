@@ -6,6 +6,7 @@ import Sidebar from "./Componenets/Sidebar";
 
 function App() {
   const [recipeQueue, setRecipeQueue] = useState([]);
+  const [preparedRecipe, setPreparedRecipe] = useState([]);
 
   const addRecipeToQueue = (recipe) => {
     const isExist = recipeQueue.find(
@@ -17,14 +18,21 @@ function App() {
       alert("Recipes already exists in the queue.");
     }
   };
-  console.log(recipeQueue);
+  const handleRemove = id =>{
+    //find which recipe to remove
+    const deletedRecipe = recipeQueue.find(recipe => recipe.recipe_id === id)
+    // remove from want to cook table
+    const updatedQueue = recipeQueue.filter(recipe=> recipe.recipe_id !== id)
+    setRecipeQueue(updatedQueue)
+    setPreparedRecipe([...preparedRecipe, deletedRecipe])
+  }
   return (
     <div className="w-11/12 mx-auto">
       <Header></Header>
       <OurRecipes></OurRecipes>
       <section className="flex flex-col md:flex-row gap-6">
         <Recipes addRecipeToQueue={addRecipeToQueue}></Recipes>
-        <Sidebar recipeQueue={recipeQueue}></Sidebar>
+        <Sidebar handleRemove={handleRemove} recipeQueue={recipeQueue} preparedRecipe={preparedRecipe}></Sidebar>
       </section>
     </div>
   );
