@@ -1,11 +1,15 @@
+/* eslint-disable react/prop-types */
 // import PropTypes from "prop-types";
 
-const Sidebar = ({ recipeQueue ,handleRemove, preparedRecipe}) => {
+// eslint-disable-next-line react/prop-types
+const Sidebar = ({ recipeQueue, handleRemove, preparedRecipe , calculateTimeAndCalories, totalTime, totalCalories}) => {
   return (
     <div className="w-1/3 border-2 rounded-2xl p-2 text-gray-600 bg-base-100">
       {/* Want to cook table */}
       <div className="overflow-x-auto">
-        <h2 className="border-b-2 mx-auto font-bold text-gray-800 text-center py-4 text-2xl">Want to cook : {recipeQueue.length}</h2>
+        <h2 className="border-b-2 mx-auto font-bold text-gray-800 text-center py-4 text-2xl">
+          Want to cook : {recipeQueue.length}
+        </h2>
         <table className="table">
           {/* head */}
           <thead>
@@ -18,22 +22,30 @@ const Sidebar = ({ recipeQueue ,handleRemove, preparedRecipe}) => {
             </tr>
           </thead>
           <tbody>
-            {
-                recipeQueue.map((recipe,idx)=>
-                <tr className="hover" key={idx}>
-                    <th>{idx + 1}</th>
-                    <td>{recipe.recipe_name}</td>
-                    <td>{recipe.preparing_time}</td>
-                    <td>{recipe.calories}</td>  
-                    <td><button onClick={()=>handleRemove(recipe.recipe_id)} className="btn bg-[#0BE58A] rounded-full font-bold">Preparing</button></td>                 
-                </tr>)
-            }
+            {recipeQueue.map((recipe, idx) => (
+              <tr className="hover" key={idx}>
+                <th>{idx + 1}</th>
+                <td>{recipe.recipe_name}</td>
+                <td>{recipe.preparing_time}</td>
+                <td>{recipe.calories}</td>
+                <td>
+                  <button
+                    onClick={() => {handleRemove(recipe.recipe_id) ,calculateTimeAndCalories(recipe.preparing_time,recipe.calories)}}
+                    className="btn bg-[#0BE58A] rounded-full font-bold"
+                  >
+                    Preparing
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
       {/* Currently cook table */}
       <div className="overflow-x-auto mt-8">
-        <h2 className="border-b-2 mx-auto font-bold text-gray-800 text-center py-4 text-2xl">Currently cooking : {preparedRecipe.length}</h2>
+        <h2 className="border-b-2 mx-auto font-bold text-gray-800 text-center py-4 text-2xl">
+          Currently cooking : {preparedRecipe.length}
+        </h2>
         <table className="table">
           {/* head */}
           <thead>
@@ -45,15 +57,20 @@ const Sidebar = ({ recipeQueue ,handleRemove, preparedRecipe}) => {
             </tr>
           </thead>
           <tbody>
-            {
-                preparedRecipe.map((recipe,idx)=>
-                <tr className="hover" key={idx}>
-                    <th>{idx + 1}</th>
-                    <td>{recipe.recipe_name}</td>
-                    <td>{recipe.preparing_time}</td>
-                    <td>{recipe.calories}</td>                  
-                </tr>)
-            }
+            {preparedRecipe.map((recipe, idx) => (
+              <tr className="hover" key={idx}>
+                <th>{idx + 1}</th>
+                <td>{recipe.recipe_name}</td>
+                <td>{recipe.preparing_time}</td>
+                <td>{recipe.calories}</td>
+              </tr>
+            ))}
+            <tr className="border-none">
+              <th></th>
+              <td></td>
+              <td>Total Time = {totalTime}</td>
+              <td>Total Calories = {totalCalories}</td>
+            </tr>
           </tbody>
         </table>
       </div>

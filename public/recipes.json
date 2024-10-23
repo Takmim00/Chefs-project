@@ -12,8 +12,8 @@
       "150 g onion",
       "2 cloves garlic"
     ],
-    "preparing_time": "30",
-    "calories": "450"
+    "preparing_time": 30,
+    "calories": 450
   },
   {
     "recipe_id": "002",
@@ -28,8 +28,8 @@
       "100 g parmesan cheese",
       "2 cloves garlic"
     ],
-    "preparing_time": "25",
-    "calories": "350"
+    "preparing_time": 25,
+    "calories": 350
   },
   {
     "recipe_id": "003",
@@ -44,8 +44,8 @@
       "2 cloves garlic",
       "1 tbsp butter"
     ],
-    "preparing_time": "40",
-    "calories": "320"
+    "preparing_time": 40,
+    "calories": 320
   },
   {
     "recipe_id": "004",
@@ -59,8 +59,8 @@
       "1 tbsp parsley",
       "Salt and pepper to taste"
     ],
-    "preparing_time": "20",
-    "calories": "450"
+    "preparing_time": 20,
+    "calories": 450
   },
   {
     "recipe_id": "005",
@@ -74,8 +74,8 @@
       "Salt and pepper to taste",
       "Chili flakes (optional)"
     ],
-    "preparing_time": "10",
-    "calories": "300"
+    "preparing_time": 10,
+    "calories": 300
   },
   {
     "recipe_id": "006",
@@ -90,7 +90,7 @@
       "150 g tomatoes",
       "Salsa (to taste)"
     ],
-    "preparing_time": "30",
-    "calories": "520"
+    "preparing_time": 30,
+    "calories": 520
   }
 ]
